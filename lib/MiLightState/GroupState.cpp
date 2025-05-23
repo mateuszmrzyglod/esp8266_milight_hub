@@ -873,6 +873,11 @@ void GroupState::applyField(JsonObject partialState, const BulbId& bulbId, Group
           && getBulbMode() == BULB_MODE_WHITE
         ) {
           partialState[GroupStateFieldNames::COLOR_MODE] = F("color_temp");
+        } else if (
+          !MiLightRemoteTypeHelpers::supportsColorTemp(bulbId.deviceType)
+          && getBulbMode() == BULB_MODE_NIGHT
+        ) {
+          partialState[GroupStateFieldNames::COLOR_MODE] = F("brightness");
         } else if (getBulbMode() == BULB_MODE_NIGHT) {
           partialState[GroupStateFieldNames::COLOR_MODE] = F("onoff");
         } else {

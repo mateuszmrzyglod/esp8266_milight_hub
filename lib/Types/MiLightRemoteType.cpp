@@ -94,7 +94,6 @@ const bool MiLightRemoteTypeHelpers::supportsColorTemp(const MiLightRemoteType t
   switch (type) {
     case REMOTE_TYPE_CCT:
     case REMOTE_TYPE_FUT089:
-    case REMOTE_TYPE_FUT091:
     case REMOTE_TYPE_RGB_CCT:
       return true;
     default:
